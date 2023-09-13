@@ -14,6 +14,11 @@ output "pingone_domain_suffix" {
 output "pingone_url_auth_domain" {
   description = "The domain for the PingOne tenant's authorization server.  Example result when a custom domain is specified: `auth.bxretail.org`.  Example result when a custom domain is not specified: `auth.pingone.com`."
   value       = local.pingone_url_auth_domain
+
+  precondition {
+    condition     = var.custom_domain != null || var.environment_id != null
+    error_message = "The `custom_domain` or `environment_id` input variables must be set to calculate the environment's auth domain."
+  }
 }
 
 output "pingone_url_api_domain" {
