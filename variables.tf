@@ -21,7 +21,7 @@ variable "environment_id" {
 }
 
 variable "custom_domain" {
-  description = "A string that represents a custom domain configured in the PingOne environment. One of `environment_id` or `custom_domain` must be configured to compute the URLs needed for client application integration (such as the authorization, token, userinfo and well-known endpoints)."
+  description = "A string that represents a custom domain intended to be configured in the PingOne environment. For example,: `auth.bxretail.org`.  One of `environment_id` or `custom_domain` must be configured to compute the URLs needed for client application integration (such as the authorization, token, userinfo and well-known endpoints)."
   type        = string
   default     = null
 
