@@ -11,7 +11,7 @@ This Terraform module is still in development and considered early access.  Brea
 The following are calculated values that are needed to configure PingOne services in DaVinci.
 
 | Module Output | Description | Example Result Value |
-|-|-|-|
+|---------------|-------------|----------------------|
 | `pingone_davinci_connector_region_code` | The region code to use when configuring a DaVinci connector for the PingOne service.  Will be either `NA`, `EU`, `CA` or `AP`. | `NA` |
 
 ## Platform Endpoint URLs, Base URLs and Domains
@@ -21,7 +21,7 @@ The following are calculated values that are needed to configure PingOne service
 The following are calculated URLs that are needed to integrate customer applications with PingOne.  These values are calculated based on the `region`, `environment_id` and `custom_domain` inputs.
 
 | Module Output | Description | Example Result Value with `custom_domain` input defined | Example Result Value without `custom_domain` input defined |
-|-|-|-|-|
+|---------------|-------------|---------------------------------------------------------|------------------------------------------------------------|
 | `pingone_environment_authorization_endpoint` | The authorization endpoint for the PingOne tenant's authorization server. | `https://auth.bxretail.org/as/authorize` | `https://auth.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/as/authorize` |
 | `pingone_environment_issuer` | The issuer for the PingOne tenant's authorization server. | `https://auth.bxretail.org/as` | `https://auth.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/as` |
 | `pingone_environment_jwks_endpoint` | The JWKS endpoint for the PingOne tenant's authorization server | `https://auth.bxretail.org/as/jwks` | `https://auth.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/as/jwks` |
@@ -38,7 +38,7 @@ The following are calculated URLs that are needed to integrate customer applicat
 The following are calculated URLs for platform provided applications, including the Application Portal, Self-Service application and Administration Console.  These values are calculated based on the `region`, `environment_id` and `custom_domain` inputs.
 
 | Module Output | Description | Example Result Value with `custom_domain` input defined | Example Result Value without `custom_domain` input defined |
-|-|-|-|-|
+|---------------|-------------|---------------------------------------------------------|------------------------------------------------------------|
 | `pingone_environment_application_portal_endpoint` | The PingOne Application Portal endpoint for the provided environment. | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myapps/` | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myapps/` |
 | `pingone_environment_console_login_endpoint` | The PingOne administration console login endpoint for the provided environment. | `https://console.pingone.com/?env=46fb6778-b9d9-4349-a39d-7078d60e06b6` | `https://console.pingone.com/?env=46fb6778-b9d9-4349-a39d-7078d60e06b6` |
 | `pingone_environment_self_service_endpoint` |  | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myaccount/` | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myaccount/` |
@@ -48,7 +48,7 @@ The following are calculated URLs for platform provided applications, including 
 The following are calculated URLs to interact with PingOne's administration and data API services.  These values are calculated based on the `region`, `environment_id` and `custom_domain` inputs.
 
 | Module Output | Description | Example Result Value with `custom_domain` input defined | Example Result Value without `custom_domain` input defined |
-|-|-|-|-|
+|---------------|-------------|---------------------------------------------------------|------------------------------------------------------------|
 | `pingone_domain_suffix` | The domain suffix for the PingOne tenant.  Will be either `com`, `eu`, `ca` or `asia`. | `com` | `com` |
 | `pingone_url_agreement_management_api_domain` | The domain for the PingOne tenant's Agreement Management API server. | `agreement-mgmt.pingone.com` | `agreement-mgmt.pingone.com` |
 | `pingone_url_agreement_management_api_path` | The base path for the PingOne tenant's Agreement Management API server. | `https://agreement-mgmt.pingone.com` | `https://agreement-mgmt.pingone.com` |
@@ -73,7 +73,7 @@ The following are calculated URLs to interact with PingOne's administration and 
 The following are calculated PingOne resource IDs for each administration role in the PingOne platform.  These values are the equivalent of the `id` read-only attribute on the `pingone_role` data source and are retrieved using the PingOne provider's role data sources.
 
 | Module Output | Description | Example Result Value |
-|-|-|-|
+|---------------|-------------|----------------------|
 | `pingone_role_id_client_application_developer` | A string representing the PingOne resource ID of the role `Client Application Developer`. | `e5044093-3a97-4886-950c-2c501f8985d4` |
 | `pingone_role_id_configuration_read_only` | A string representing the PingOne resource ID of the role `Configuration Read Only`. | `c0ed8595-2f18-4034-b0cf-aa2943b78c2f` |
 | `pingone_role_id_davinci_admin_read_only` | A string representing the PingOne resource ID of the role `DaVinci Admin Read Only`. | `560bd896-6053-4d71-9e73-3d0b1e8f882e` |
@@ -93,7 +93,7 @@ The following are calculated PingOne resource IDs for each administration role i
 The following are constant values for the names of each administration role in the PingOne platform.  These values can be used as the `name` input parameter on the `pingone_role` data source.
 
 | Module Output | Description | Example Result Value |
-|-|-|-|
+|---------------|-------------|----------------------|
 | `pingone_role_name_client_application_developer` | The string constant representing the name of the PingOne role `Client Application Developer`. | `Client Application Developer` |
 | `pingone_role_name_configuration_read_only` | The string constant representing the name of the PingOne role `Configuration Read Only`. | `Configuration Read Only` |
 | `pingone_role_name_davinci_admin_read_only` | The string constant representing the name of the PingOne role `DaVinci Admin Read Only`. | `DaVinci Admin Read Only` |
@@ -113,7 +113,7 @@ The following are constant values for the names of each administration role in t
 The following are constant values for the names of each PingOne Resource, the scopes of which are granted to applications.  These values can be used as the `resource_name` input parameter on the `pingone_application_role_assignment` resource, or the `name` input parameter for the `pingone_resource` data source.
 
 | Module Output | Description | Example Result Value |
-|-|-|-|
+|---------------|-------------|----------------------|
 | `pingone_resource_name_openid_connect` | A string constant `openid` that represents the OpenID Connect resource name in PingOne, useful when granting OpenID Connect resources and their scopes to applications using the `pingone_application_resource_grant` resource. | `openid` |
 | `pingone_resource_name_pingone_api` | A string constant `PingOne API` that represents the PingOne API resource name in PingOne, useful when granting PingOne API resources and their scopes to applications using the `pingone_application_resource_grant` resource. | `PingOne API` |
 
@@ -121,8 +121,8 @@ The following are constant values for the names of each PingOne Resource, the sc
 
 The following are constant values for the names of each PingOne Resource Scope, which are granted to applications.  These values can be used in the `scope_names` input parameter on the `pingone_application_role_assignment` resource, or the `name` input parameter for the `pingone_resource_scope` data source.
 
-| Module Output | Description | Example Result Value
-|-|-|-|
+| Module Output | Description | Example Result Value |
+|---------------|-------------|----------------------|
 | `pingone_resource_scope_name_openid_address` | The string constant representing the OpenID Connect scope name `address`. | `address` |
 | `pingone_resource_scope_name_openid_email` | The string constant representing the OpenID Connect scope name `email`. | `email` |
 | `pingone_resource_scope_name_openid_phone` | The string constant representing the OpenID Connect scope name `phone`. | `phone` |
@@ -154,12 +154,12 @@ The following are constant values for the names of each PingOne Resource Scope, 
 The following are constant list values of PingOne API scopes that enable specific features of the PingOne Self-Service application.  To enable/disable Self-Service application features, concatenate the following as needed (using the `concat()` function) and use the `pingone_application_role_assignment` resource to assign them to the Self-Service system application (the `pingone_system_application` resource).
 
 | Module Output | Description | Example Result Value |
-|-|-|-|
-| `pingone_self_service_capability_scopes_manage_authentication` | A list of PingOne API scopes that correlate to the Authentication management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, authentication management features are enabled. | `[ "p1:create:device", "p1:create:pairingKey","p1:delete:device", "p1:read:device", "p1:read:pairingKey", "p1:update:device" ]` |
-| `pingone_self_service_capability_scopes_manage_linked_accounts` | A list of PingOne API scopes that correlate to the Linked Accounts management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, linked accounts management features are enabled. | `[ "p1:delete:userLinkedAccounts", "p1:read:userLinkedAccounts" ]` |
-| `pingone_self_service_capability_scopes_manage_mfa` | A list of PingOne API scopes that correlate to the MFA management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, MFA management features are enabled. | `[ "p1:update:userMfaEnabled" ]` |
-| `pingone_self_service_capability_scopes_manage_oauth_consents` | A list of PingOne API scopes that correlate to the OAuth Consents management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, OAuth Consents management features are enabled. | `[ "p1:read:oauthConsent", "p1:update:oauthConsent" ]` |
-| `pingone_self_service_capability_scopes_manage_password` | A list of PingOne API scopes that correlate to the Password management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, password management features are enabled. | `[ "p1:read:userPassword", "p1:reset:userPassword", "p1:validate:userPassword" ]` |
-| `pingone_self_service_capability_scopes_manage_profile` | A list of PingOne API scopes that correlate to the Profile management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, profile management features are enabled. | `["p1:read:user", "p1:update:user"]` |
-| `pingone_self_service_capability_scopes_manage_sessions` | A list of PingOne API scopes that correlate to the Sessions management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, sessions management features are enabled. | `[ "p1:delete:sessions", "p1:read:sessions" ]` |
-| `pingone_self_service_capability_scopes_view_agreements` | A list of PingOne API scopes that correlate to the Agreements management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, agreements management features are enabled. | `[ "p1:read:userConsent" ]` |
+|---------------|-------------|----------------------|
+| `pingone_self_service_capability_scopes_manage_authentication` | A list of PingOne API scopes that correlate to the Authentication management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, authentication management features are enabled. | <pre>[<br>  "p1:create:device",<br>  "p1:create:pairingKey",<br>  "p1:delete:device",<br>  "p1:read:device",<br>  "p1:read:pairingKey",<br>  "p1:update:device"<br>]</pre> |
+| `pingone_self_service_capability_scopes_manage_linked_accounts` | A list of PingOne API scopes that correlate to the Linked Accounts management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, linked accounts management features are enabled. | <pre>[<br>  "p1:delete:userLinkedAccounts",<br>  "p1:read:userLinkedAccounts"<br>]</pre> |
+| `pingone_self_service_capability_scopes_manage_mfa` | A list of PingOne API scopes that correlate to the MFA management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, MFA management features are enabled. | <pre>[<br>  "p1:update:userMfaEnabled"<br>]</pre> |
+| `pingone_self_service_capability_scopes_manage_oauth_consents` | A list of PingOne API scopes that correlate to the OAuth Consents management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, OAuth Consents management features are enabled. | <pre>[<br>  "p1:read:oauthConsent",<br>  "p1:update:oauthConsent"<br>]</pre> |
+| `pingone_self_service_capability_scopes_manage_password` | A list of PingOne API scopes that correlate to the Password management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, password management features are enabled. | <pre>[<br>  "p1:read:userPassword",<br>  "p1:reset:userPassword",<br>  "p1:validate:userPassword"<br>]</pre> |
+| `pingone_self_service_capability_scopes_manage_profile` | A list of PingOne API scopes that correlate to the Profile management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, profile management features are enabled. | <pre>[<br>  "p1:read:user",<br>  "p1:update:user"<br>]</pre> |
+| `pingone_self_service_capability_scopes_manage_sessions` | A list of PingOne API scopes that correlate to the Sessions management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, sessions management features are enabled. | <pre>[<br>  "p1:delete:sessions",<br>  "p1:read:sessions"<br>]</pre> |
+| `pingone_self_service_capability_scopes_view_agreements` | A list of PingOne API scopes that correlate to the Agreements management features of the PingOne Self-Service application.  When these scopes are granted to the Self-Service application using the `pingone_application_resource_grant` resource, agreements management features are enabled. | <pre>[<br>  "p1:read:userConsent"<br>]</pre> |
