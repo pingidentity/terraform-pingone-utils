@@ -6,7 +6,34 @@ This module provides a set of commonly calculated variables (including URLs, hos
 
 This Terraform module is still in development and considered early access.  Breaking changes are likely. Please use with caution.
 
-## DaVinci Value Conversion
+## Usage
+
+### With Custom Domain
+
+```hcl
+module "pingone_utils" {
+  source = "pingidentity/utils/pingone"
+
+  region         = pingone_environment.my_environment.region
+  environment_id = pingone_environment.my_environment.id
+  custom_domain  = "auth.bxretail.org"
+}
+```
+
+### Without Custom Domain
+
+```hcl
+module "pingone_utils" {
+  source = "pingidentity/utils/pingone"
+
+  region         = pingone_environment.my_environment.region
+  environment_id = pingone_environment.my_environment.id
+}
+```
+
+## Outputs
+
+### DaVinci Value Conversion
 
 The following are calculated values that are needed to configure PingOne services in DaVinci.
 
@@ -14,9 +41,9 @@ The following are calculated values that are needed to configure PingOne service
 |---------------|-------------|----------------------|
 | `pingone_davinci_connector_region_code` | The region code to use when configuring a DaVinci connector for the PingOne service.  Will be either `NA`, `EU`, `CA` or `AP`. | `NA` |
 
-## Platform Endpoint URLs, Base URLs and Domains
+### Platform Endpoint URLs, Base URLs and Domains
 
-### Application Integration Endpoint URLs
+#### Application Integration Endpoint URLs
 
 The following are calculated URLs that are needed to integrate customer applications with PingOne.  These values are calculated based on the `region`, `environment_id` and `custom_domain` inputs.
 
@@ -33,7 +60,7 @@ The following are calculated URLs that are needed to integrate customer applicat
 | `pingone_environment_token_revokation_endpoint` | The token revokation endpoint for the PingOne tenant's authorization server. | `https://auth.bxretail.org/as/revoke` | `https://auth.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/as/revoke` |
 | `pingone_environment_userinfo_endpoint` | The userinfo endpoint for the PingOne tenant's authorization server | `https://auth.bxretail.org/as/userinfo` | `https://auth.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/as/userinfo` |
 
-### Platform Application Endpoint URLs
+#### Platform Application Endpoint URLs
 
 The following are calculated URLs for platform provided applications, including the Application Portal, Self-Service application and Administration Console.  These values are calculated based on the `region`, `environment_id` and `custom_domain` inputs.
 
@@ -43,7 +70,7 @@ The following are calculated URLs for platform provided applications, including 
 | `pingone_environment_console_login_endpoint` | The PingOne administration console login endpoint for the provided environment. | `https://console.pingone.com/?env=46fb6778-b9d9-4349-a39d-7078d60e06b6` | `https://console.pingone.com/?env=46fb6778-b9d9-4349-a39d-7078d60e06b6` |
 | `pingone_environment_self_service_endpoint` | The PingOne Self-Service application endpoint for the provided environment. | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myaccount/` | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myaccount/` |
 
-### Platform API URLs
+#### Platform API URLs
 
 The following are calculated URLs to interact with PingOne's administration and data API services.  These values are calculated based on the `region`, `environment_id` and `custom_domain` inputs.
 
@@ -67,9 +94,9 @@ The following are calculated URLs to interact with PingOne's administration and 
 | `pingone_url_scim_api_path_v1` | The base path for the PingOne tenant's SCIM API server (v1). | `https://scim-api.pingone.com/v1` | `https://scim-api.pingone.com/v1` |
 | `pingone_url_scim_api_path` | The base path for the PingOne tenant's SCIM API server. | `https://scim-api.pingone.com` | `https://scim-api.pingone.com` |
 
-## Admin Roles
+### Admin Roles
 
-### Admin Role IDs
+#### Admin Role IDs
 
 The following are calculated PingOne resource IDs for each administration role in the PingOne platform.  These values are the equivalent of the `id` read-only attribute on the `pingone_role` data source and are retrieved using the PingOne provider's role data sources.
 
@@ -89,7 +116,7 @@ The following are calculated PingOne resource IDs for each administration role i
 | `pingone_role_id_pingfederate_expression_administrator` | A string representing the PingOne resource ID of the role `PingFederate Expression Administrator`. | `8634cabf-2ddb-470d-a8ff-16082fbc62f0` |
 | `pingone_role_id_pingfederate_user_administrator` | A string representing the PingOne resource ID of the role `PingFederate User Administrator`. | `cb42294d-be81-4aea-ad87-884d2ac43c65` |
 
-### Admin Role Name Constants
+#### Admin Role Name Constants
 
 The following are constant values for the names of each administration role in the PingOne platform.  These values can be used as the `name` input parameter on the `pingone_role` data source.
 
@@ -109,7 +136,7 @@ The following are constant values for the names of each administration role in t
 | `pingone_role_name_pingfederate_expression_administrator` | The string constant representing the name of the PingOne role `PingFederate Expression Administrator`. | `PingFederate Expression Administrator` |
 | `pingone_role_name_pingfederate_user_administrator` | The string constant representing the name of the PingOne role `PingFederate User Administrator`. | `PingFederate User Administrator` |
 
-## OpenID Connect / PingOne API Resource Name Constants
+### OpenID Connect / PingOne API Resource Name Constants
 
 The following are constant values for the names of each PingOne Resource, the scopes of which are granted to applications.  These values can be used as the `resource_name` input parameter on the `pingone_application_role_assignment` resource, or the `name` input parameter for the `pingone_resource` data source.
 
@@ -118,7 +145,7 @@ The following are constant values for the names of each PingOne Resource, the sc
 | `pingone_resource_name_openid_connect` | A string constant `openid` that represents the OpenID Connect resource name in PingOne, useful when granting OpenID Connect resources and their scopes to applications using the `pingone_application_resource_grant` resource. | `openid` |
 | `pingone_resource_name_pingone_api` | A string constant `PingOne API` that represents the PingOne API resource name in PingOne, useful when granting PingOne API resources and their scopes to applications using the `pingone_application_resource_grant` resource. | `PingOne API` |
 
-## OpenID Connect / PingOne API Resource Scope Name Constants
+### OpenID Connect / PingOne API Resource Scope Name Constants
 
 The following are constant values for the names of each PingOne Resource Scope, which are granted to applications.  These values can be used in the `scope_names` input parameter on the `pingone_application_role_assignment` resource, or the `name` input parameter for the `pingone_resource_scope` data source.
 
@@ -150,7 +177,7 @@ The following are constant values for the names of each PingOne Resource Scope, 
 | `pingone_resource_scope_name_pingone_api_validate_userpassword` | The string constant representing the PingOne API scope name `p1:validate:userPassword`. | `p1:validate:userPassword` |
 | `pingone_resource_scope_name_pingone_api_verify_user` | The string constant representing the PingOne API scope name `p1:verify:user`. | `p1:verify:user` |
 
-## Self-Service Application Capability Scopes
+### Self-Service Application Capability Scopes
 
 The following are constant list values of PingOne API scopes that enable specific features of the PingOne Self-Service application.  To enable/disable Self-Service application features, concatenate the following as needed (using the `concat()` function) and use the `pingone_application_role_assignment` resource to assign them to the Self-Service system application (the `pingone_system_application` resource).
 
