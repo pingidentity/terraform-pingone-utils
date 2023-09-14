@@ -7,10 +7,10 @@ locals {
   ###########################################
   # Region Expressions
   ###########################################
-  is_north_america = (local.region == "NORTHAMERICA" || local.region == "NA")
+  is_north_america = (local.region == "NORTHAMERICA" || local.region == "NA" || local.region == "COM")
   is_europe        = (local.region == "EUROPE" || local.region == "EU")
   is_canada        = (local.region == "CANADA" || local.region == "CA")
-  is_asia_pacific  = (local.region == "ASIAPACIFIC" || local.region == "AP")
+  is_asia_pacific  = (local.region == "ASIAPACIFIC" || local.region == "AP" || local.region == "ASIA")
 
   ###########################################
   # Domain Suffixes
