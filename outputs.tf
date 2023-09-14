@@ -46,8 +46,13 @@ output "pingone_url_agreement_management_api_domain" {
 ###########################################
 
 output "pingone_url_auth_path" {
-  description = "The base path for the PingOne tenant's authorization server.  Example result when a custom domain is specified: `https://auth.bxretail.org`.  Example result when a custom domain is not specified: `https://auth.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6`."
+  description = "The base path for the PingOne tenant's authorization server.  Example result when a custom domain is specified: `https://auth.bxretail.org`.  Example result when a custom domain is not specified: `https://auth.pingone.com`."
   value       = local.pingone_url_auth_path
+}
+
+output "pingone_url_auth_path_full" {
+  description = "The full base path for the PingOne tenant's authorization server.  Example result when a custom domain is specified: `https://auth.bxretail.org`.  Example result when a custom domain is not specified: `https://auth.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6`."
+  value       = local.pingone_url_auth_path_full
 }
 
 output "pingone_url_api_path" {

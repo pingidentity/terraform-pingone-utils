@@ -35,7 +35,8 @@ locals {
   ###########################################
   # Base Paths
   ###########################################
-  pingone_url_auth_path                     = local.custom_domain != "" ? format("https://%s", local.pingone_url_auth_domain) : format("https://%s/%s", local.pingone_url_auth_domain, local.environment_id)
+  pingone_url_auth_path                     = local.custom_domain != "" ? format("https://%s", local.pingone_url_auth_domain) : format("https://%s", local.pingone_url_auth_domain)
+  pingone_url_auth_path_full                     = format("%s/%s", local.pingone_url_auth_path, local.environment_id)
   pingone_url_api_path                      = format("https://%s", local.pingone_url_api_domain)
   pingone_url_orchestrate_api_path          = format("https://%s", local.pingone_url_orchestrate_api_domain)
   pingone_url_scim_api_path                 = format("https://%s", local.pingone_url_scim_api_domain)
@@ -60,16 +61,16 @@ locals {
   ###########################################
   # PingOne Environment application integration endpoints
   ###########################################
-  pingone_environment_authorization_endpoint       = format("%s/as/authorize", local.pingone_url_auth_path)
-  pingone_environment_par_endpoint                 = format("%s/as/par", local.pingone_url_auth_path)
-  pingone_environment_token_endpoint               = format("%s/as/token", local.pingone_url_auth_path)
-  pingone_environment_jwks_endpoint                = format("%s/as/jwks", local.pingone_url_auth_path)
-  pingone_environment_userinfo_endpoint            = format("%s/as/userinfo", local.pingone_url_auth_path)
-  pingone_environment_signoff_endpoint             = format("%s/as/signoff", local.pingone_url_auth_path)
-  pingone_environment_oidc_discovery_endpoint      = format("%s/as/.well-known/openid-configuration", local.pingone_url_auth_path)
-  pingone_environment_token_introspection_endpoint = format("%s/as/introspect", local.pingone_url_auth_path)
-  pingone_environment_token_revokation_endpoint    = format("%s/as/revoke", local.pingone_url_auth_path)
-  pingone_environment_issuer                       = format("%s/as", local.pingone_url_auth_path)
+  pingone_environment_authorization_endpoint       = format("%s/as/authorize", local.pingone_url_auth_path_full)
+  pingone_environment_par_endpoint                 = format("%s/as/par", local.pingone_url_auth_path_full)
+  pingone_environment_token_endpoint               = format("%s/as/token", local.pingone_url_auth_path_full)
+  pingone_environment_jwks_endpoint                = format("%s/as/jwks", local.pingone_url_auth_path_full)
+  pingone_environment_userinfo_endpoint            = format("%s/as/userinfo", local.pingone_url_auth_path_full)
+  pingone_environment_signoff_endpoint             = format("%s/as/signoff", local.pingone_url_auth_path_full)
+  pingone_environment_oidc_discovery_endpoint      = format("%s/as/.well-known/openid-configuration", local.pingone_url_auth_path_full)
+  pingone_environment_token_introspection_endpoint = format("%s/as/introspect", local.pingone_url_auth_path_full)
+  pingone_environment_token_revokation_endpoint    = format("%s/as/revoke", local.pingone_url_auth_path_full)
+  pingone_environment_issuer                       = format("%s/as", local.pingone_url_auth_path_full)
 
   ###########################################
   # DaVinci Connector Region Code

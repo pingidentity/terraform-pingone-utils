@@ -57,7 +57,8 @@ The following are calculated URLs to interact with PingOne's administration and 
 | `pingone_url_api_path` | The base path for the PingOne tenant's API server. | `https://api.pingone.com` | `https://api.pingone.com` |
 | `pingone_url_apps_path` | The base path for the PingOne tenant's Apps URL. | `https://apps.pingone.com` | `https://apps.pingone.com` |
 | `pingone_url_auth_domain` | The domain for the PingOne tenant's authorization server. | `auth.bxretail.org` | `auth.pingone.com` |
-| `pingone_url_auth_path` | The base path for the PingOne tenant's authorization server. | `https://auth.bxretail.org` | `https://auth.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6` |
+| `pingone_url_auth_path` | The base path for the PingOne tenant's authorization server. | `https://auth.bxretail.org` | `https://auth.pingone.com` |
+| `pingone_url_auth_path_full` | The full base path for the PingOne tenant's authorization server. | `https://auth.bxretail.org` | `https://auth.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6` |
 | `pingone_url_console_path` | The base path for the PingOne tenant's Console. | `https://console.pingone.com` | `https://console.pingone.com` |
 | `pingone_url_orchestrate_api_domain` | The domain for the PingOne tenant's Orchestrate API server. | `orchestrate-api.pingone.com` | `orchestrate-api.pingone.com` |
 | `pingone_url_orchestrate_api_path_v1` | The base path for the PingOne tenant's Orchestrate API server (v1). | `https://orchestrate-api.pingone.com/v1` | `https://orchestrate-api.pingone.com/v1` |
