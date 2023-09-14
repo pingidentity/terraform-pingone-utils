@@ -29,6 +29,8 @@ locals {
   pingone_url_orchestrate_api_domain          = format("orchestrate-api.pingone.%s", local.pingone_url_domain_suffix)
   pingone_url_scim_api_domain                 = format("scim-api.pingone.%s", local.pingone_url_domain_suffix)
   pingone_url_agreement_management_api_domain = format("agreement-mgmt.pingone.%s", local.pingone_url_domain_suffix)
+  pingone_url_console_domain                  = format("console.pingone.%s", local.pingone_url_domain_suffix)
+  pingone_url_apps_domain                     = format("apps.pingone.%s", local.pingone_url_domain_suffix)
 
   ###########################################
   # Base Paths
@@ -38,6 +40,8 @@ locals {
   pingone_url_orchestrate_api_path          = format("https://%s", local.pingone_url_orchestrate_api_domain)
   pingone_url_scim_api_path                 = format("https://%s", local.pingone_url_scim_api_domain)
   pingone_url_agreement_management_api_path = format("https://%s", local.pingone_url_agreement_management_api_domain)
+  pingone_url_console_path                  = format("https://%s", local.pingone_url_console_domain)
+  pingone_url_apps_path                     = format("https://%s", local.pingone_url_apps_domain)
 
   ###########################################
   # Base Paths (v1) Paths
@@ -45,6 +49,13 @@ locals {
   pingone_url_api_path_v1             = format("%s/v1", local.pingone_url_api_path)
   pingone_url_orchestrate_api_path_v1 = format("%s/v1", local.pingone_url_orchestrate_api_path)
   pingone_url_scim_api_path_v1        = format("%s/v1", local.pingone_url_scim_api_path)
+
+  ###########################################
+  # System Application Endpoints
+  ###########################################
+  pingone_environment_console_login_endpoint      = format("%s?env=%s", local.pingone_url_console_path, local.environment_id)
+  pingone_environment_self_service_endpoint       = format("%s/%s/myaccount/", local.pingone_url_apps_path, local.environment_id)
+  pingone_environment_application_portal_endpoint = format("%s/%s/myapps/", local.pingone_url_apps_path, local.environment_id)
 
   ###########################################
   # PingOne Environment application integration endpoints

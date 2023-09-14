@@ -70,6 +70,16 @@ output "pingone_url_agreement_management_api_path" {
   value       = local.pingone_url_agreement_management_api_path
 }
 
+output "pingone_url_console_path" {
+  description = "The base path for the PingOne tenant's Console.  Example result: `https://console.pingone.com`."
+  value       = local.pingone_url_console_path
+}
+
+output "pingone_url_apps_path" {
+  description = "The base path for the PingOne tenant's Apps URL.  Example result: `https://apps.pingone.com`."
+  value       = local.pingone_url_apps_path
+}
+
 ###########################################
 # Base Paths (v1) Paths
 ###########################################
@@ -87,6 +97,24 @@ output "pingone_url_orchestrate_api_path_v1" {
 output "pingone_url_scim_api_path_v1" {
   description = "The base path for the PingOne tenant's SCIM API server (v1).  Example result: `https://scim-api.pingone.com/v1`."
   value       = local.pingone_url_scim_api_path_v1
+}
+
+###########################################
+# System Application Endpoints
+###########################################
+output "pingone_environment_console_login_endpoint" {
+  description = "The PingOne administration console login endpoint for the provided environment.  Example result: `https://console.pingone.com/?env=46fb6778-b9d9-4349-a39d-7078d60e06b6`."
+  value       = local.pingone_environment_console_login_endpoint
+}
+
+output "pingone_environment_self_service_endpoint" {
+  description = "The PingOne Self-Service application endpoint for the provided environment.  Example result: `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myaccount/`."
+  value       = local.pingone_environment_self_service_endpoint
+}
+
+output "pingone_environment_application_portal_endpoint" {
+  description = "The PingOne Application Portal endpoint for the provided environment.  Example result: `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myapps/`."
+  value       = local.pingone_environment_application_portal_endpoint
 }
 
 ###########################################
