@@ -41,7 +41,7 @@ The following are calculated URLs for platform provided applications, including 
 |---------------|-------------|---------------------------------------------------------|------------------------------------------------------------|
 | `pingone_environment_application_portal_endpoint` | The PingOne Application Portal endpoint for the provided environment. | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myapps/` | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myapps/` |
 | `pingone_environment_console_login_endpoint` | The PingOne administration console login endpoint for the provided environment. | `https://console.pingone.com/?env=46fb6778-b9d9-4349-a39d-7078d60e06b6` | `https://console.pingone.com/?env=46fb6778-b9d9-4349-a39d-7078d60e06b6` |
-| `pingone_environment_self_service_endpoint` |  | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myaccount/` | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myaccount/` |
+| `pingone_environment_self_service_endpoint` | The PingOne Self-Service application endpoint for the provided environment. | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myaccount/` | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myaccount/` |
 
 ### Platform API URLs
 
