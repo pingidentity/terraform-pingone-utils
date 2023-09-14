@@ -30,3 +30,6 @@ terraform.rc
 
 .DS_Store
 env.sh
+
+output.log
+*.tfout
