@@ -15,34 +15,35 @@ locals {
   ###########################################
   # Domain Suffixes
   ###########################################
-  pingone_url_pingone_url_domain_suffix_north_america = local.is_north_america ? "com" : ""
-  pingone_url_pingone_url_domain_suffix_europe        = local.is_europe ? "eu" : ""
-  pingone_url_pingone_url_domain_suffix_canada        = local.is_canada ? "ca" : ""
-  pingone_url_pingone_url_domain_suffix_asia_pacific  = local.is_asia_pacific ? "asia" : ""
-  pingone_url_domain_suffix                           = coalesce(local.pingone_url_pingone_url_domain_suffix_north_america, local.pingone_url_pingone_url_domain_suffix_europe, local.pingone_url_pingone_url_domain_suffix_canada, local.pingone_url_pingone_url_domain_suffix_asia_pacific)
+  pingone_domain_suffix_north_america = local.is_north_america ? "com" : ""
+  pingone_domain_suffix_europe        = local.is_europe ? "eu" : ""
+  pingone_domain_suffix_canada        = local.is_canada ? "ca" : ""
+  pingone_domain_suffix_asia_pacific  = local.is_asia_pacific ? "asia" : ""
+  pingone_domain_suffix               = coalesce(local.pingone_domain_suffix_north_america, local.pingone_domain_suffix_europe, local.pingone_domain_suffix_canada, local.pingone_domain_suffix_asia_pacific)
 
   ###########################################
   # Domains
   ###########################################
-  pingone_url_auth_domain                     = coalesce(local.custom_domain, format("auth.pingone.%s", local.pingone_url_domain_suffix))
-  pingone_url_api_domain                      = format("api.pingone.%s", local.pingone_url_domain_suffix)
-  pingone_url_orchestrate_api_domain          = format("orchestrate-api.pingone.%s", local.pingone_url_domain_suffix)
-  pingone_url_scim_api_domain                 = format("scim-api.pingone.%s", local.pingone_url_domain_suffix)
-  pingone_url_agreement_management_api_domain = format("agreement-mgmt.pingone.%s", local.pingone_url_domain_suffix)
-  pingone_url_console_domain                  = format("console.pingone.%s", local.pingone_url_domain_suffix)
-  pingone_url_apps_domain                     = format("apps.pingone.%s", local.pingone_url_domain_suffix)
+  pingone_url_auth_domain                     = coalesce(local.custom_domain, format("auth.pingone.%s", local.pingone_domain_suffix))
+  pingone_url_api_domain                      = format("api.pingone.%s", local.pingone_domain_suffix)
+  pingone_url_orchestrate_api_domain          = format("orchestrate-api.pingone.%s", local.pingone_domain_suffix)
+  pingone_url_scim_api_domain                 = format("scim-api.pingone.%s", local.pingone_domain_suffix)
+  pingone_url_agreement_management_api_domain = format("agreement-mgmt.pingone.%s", local.pingone_domain_suffix)
+  pingone_url_console_domain                  = format("console.pingone.%s", local.pingone_domain_suffix)
+  pingone_url_apps_domain                     = coalesce(local.custom_domain, format("apps.pingone.%s", local.pingone_domain_suffix))
 
   ###########################################
   # Base Paths
   ###########################################
-  pingone_url_auth_path                     = local.custom_domain != "" ? format("https://%s", local.pingone_url_auth_domain) : format("https://%s", local.pingone_url_auth_domain)
-  pingone_url_auth_path_full                     = format("%s/%s", local.pingone_url_auth_path, local.environment_id)
+  pingone_url_auth_path                     = format("https://%s", local.pingone_url_auth_domain)
+  pingone_url_auth_path_full                = local.custom_domain != "" ? local.pingone_url_auth_path : format("%s/%s", local.pingone_url_auth_path, local.environment_id)
   pingone_url_api_path                      = format("https://%s", local.pingone_url_api_domain)
   pingone_url_orchestrate_api_path          = format("https://%s", local.pingone_url_orchestrate_api_domain)
   pingone_url_scim_api_path                 = format("https://%s", local.pingone_url_scim_api_domain)
   pingone_url_agreement_management_api_path = format("https://%s", local.pingone_url_agreement_management_api_domain)
   pingone_url_console_path                  = format("https://%s", local.pingone_url_console_domain)
   pingone_url_apps_path                     = format("https://%s", local.pingone_url_apps_domain)
+  pingone_url_apps_path_full                = local.custom_domain != "" ? local.pingone_url_apps_path : format("%s/%s", local.pingone_url_apps_path, local.environment_id)
 
   ###########################################
   # Base Paths (v1) Paths
@@ -55,8 +56,8 @@ locals {
   # System Application Endpoints
   ###########################################
   pingone_environment_console_login_endpoint      = format("%s?env=%s", local.pingone_url_console_path, local.environment_id)
-  pingone_environment_self_service_endpoint       = format("%s/%s/myaccount/", local.pingone_url_apps_path, local.environment_id)
-  pingone_environment_application_portal_endpoint = format("%s/%s/myapps/", local.pingone_url_apps_path, local.environment_id)
+  pingone_environment_self_service_endpoint       = format("%s/myaccount/", local.pingone_url_apps_path_full)
+  pingone_environment_application_portal_endpoint = format("%s/myapps/", local.pingone_url_apps_path_full)
 
   ###########################################
   # PingOne Environment application integration endpoints

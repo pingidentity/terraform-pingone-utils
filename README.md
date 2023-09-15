@@ -66,9 +66,9 @@ The following are calculated URLs for platform provided applications, including 
 
 | Module Output | Description | Example Result Value with `custom_domain` input defined | Example Result Value without `custom_domain` input defined |
 |---------------|-------------|---------------------------------------------------------|------------------------------------------------------------|
-| `pingone_environment_application_portal_endpoint` | The PingOne Application Portal endpoint for the provided environment. | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myapps/` | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myapps/` |
+| `pingone_environment_application_portal_endpoint` | The PingOne Application Portal endpoint for the provided environment. | `https://auth.bxretail.org/myapps/` | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myapps/` |
 | `pingone_environment_console_login_endpoint` | The PingOne administration console login endpoint for the provided environment. | `https://console.pingone.com/?env=46fb6778-b9d9-4349-a39d-7078d60e06b6` | `https://console.pingone.com/?env=46fb6778-b9d9-4349-a39d-7078d60e06b6` |
-| `pingone_environment_self_service_endpoint` | The PingOne Self-Service application endpoint for the provided environment. | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myaccount/` | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myaccount/` |
+| `pingone_environment_self_service_endpoint` | The PingOne Self-Service application endpoint for the provided environment. | `https://auth.bxretail.org/myaccount/` | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6/myaccount/` |
 
 #### Platform API URLs
 
@@ -82,10 +82,13 @@ The following are calculated URLs to interact with PingOne's administration and 
 | `pingone_url_api_domain` | The domain for the PingOne tenant's API server. | `api.pingone.com` | `api.pingone.com` |
 | `pingone_url_api_path_v1` | The base path for the PingOne tenant's API server (v1). | `https://api.pingone.com/v1` | `https://api.pingone.com/v1` |
 | `pingone_url_api_path` | The base path for the PingOne tenant's API server. | `https://api.pingone.com` | `https://api.pingone.com` |
-| `pingone_url_apps_path` | The base path for the PingOne tenant's Apps URL. | `https://apps.pingone.com` | `https://apps.pingone.com` |
+| `pingone_url_apps_domain` | The domain for the PingOne tenant's Apps URL. | `auth.bxretail.org` | `apps.pingone.com` |
+| `pingone_url_apps_path` | The base path for the PingOne tenant's Apps URL. | `https://auth.bxretail.org` | `https://apps.pingone.com` |
+| `pingone_url_apps_path_full` | The full base path for the PingOne tenant's Apps URL. | `https://auth.bxretail.org` | `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6` |
 | `pingone_url_auth_domain` | The domain for the PingOne tenant's authorization server. | `auth.bxretail.org` | `auth.pingone.com` |
 | `pingone_url_auth_path` | The base path for the PingOne tenant's authorization server. | `https://auth.bxretail.org` | `https://auth.pingone.com` |
 | `pingone_url_auth_path_full` | The full base path for the PingOne tenant's authorization server. | `https://auth.bxretail.org` | `https://auth.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6` |
+| `pingone_url_console_domain` | The domain for the PingOne tenant's Console. | `console.pingone.com` | `console.pingone.com` |
 | `pingone_url_console_path` | The base path for the PingOne tenant's Console. | `https://console.pingone.com` | `https://console.pingone.com` |
 | `pingone_url_orchestrate_api_domain` | The domain for the PingOne tenant's Orchestrate API server. | `orchestrate-api.pingone.com` | `orchestrate-api.pingone.com` |
 | `pingone_url_orchestrate_api_path_v1` | The base path for the PingOne tenant's Orchestrate API server (v1). | `https://orchestrate-api.pingone.com/v1` | `https://orchestrate-api.pingone.com/v1` |

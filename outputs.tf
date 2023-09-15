@@ -4,7 +4,7 @@
 
 output "pingone_domain_suffix" {
   description = "The domain suffix for the PingOne tenant.  Will be either `com`, `eu`, `ca` or `asia`."
-  value       = local.pingone_url_domain_suffix
+  value       = local.pingone_domain_suffix
 }
 
 ###########################################
@@ -39,6 +39,16 @@ output "pingone_url_scim_api_domain" {
 output "pingone_url_agreement_management_api_domain" {
   description = "The domain for the PingOne tenant's Agreement Management API server.  Example result: `agreement-mgmt.pingone.com`."
   value       = local.pingone_url_agreement_management_api_domain
+}
+
+output "pingone_url_console_domain" {
+  description = "The domain for the PingOne tenant's console.  Example result: `console.pingone.com`."
+  value       = local.pingone_url_console_domain
+}
+
+output "pingone_url_apps_domain" {
+  description = "The domain for the PingOne tenant's apps service.  Example result when a custom domain is specified: `auth.bxretail.org`.  Example result when a custom domain is not specified: `apps.pingone.com`."
+  value       = local.pingone_url_apps_domain
 }
 
 ###########################################
@@ -81,8 +91,13 @@ output "pingone_url_console_path" {
 }
 
 output "pingone_url_apps_path" {
-  description = "The base path for the PingOne tenant's Apps URL.  Example result: `https://apps.pingone.com`."
+  description = "The base path for the PingOne tenant's Apps URL.  Example result when a custom domain is specified: `https://auth.bxretail.org`.  Example result when a custom domain is not specified: `https://apps.pingone.com`."
   value       = local.pingone_url_apps_path
+}
+
+output "pingone_url_apps_path_full" {
+  description = "The full base path for the PingOne tenant's Apps URL.  Example result when a custom domain is specified: `https://auth.bxretail.org`.  Example result when a custom domain is not specified: `https://apps.pingone.com/46fb6778-b9d9-4349-a39d-7078d60e06b6`."
+  value       = local.pingone_url_apps_path_full
 }
 
 ###########################################
