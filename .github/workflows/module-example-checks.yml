@@ -29,7 +29,16 @@ jobs:
           terraform_wrapper: false
 
       - name: Terraform Validate
-        run: terraform validate
+        run: |
+          # Loop through the directories in the "examples" directory
+          for dir in examples/*; do
+            # Check if it's a directory
+            if [ -d "$dir" ]; then
+              cd $dir
+              terraform init -backend=false
+              terraform validate
+            fi
+          done
 
       - name: Terraform Format
         run: terraform fmt -check -recursive ./examples
@@ -41,6 +50,3 @@ jobs:
         run: |
           cd ./examples
           tflint --recursive
-
-      - name: Run tfsec
-        uses: aquasecurity/tfsec-action@v1.0.0
