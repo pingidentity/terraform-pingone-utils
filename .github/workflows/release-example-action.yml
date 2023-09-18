@@ -22,7 +22,7 @@ jobs:
               exampleName="$(basename "$dir" | sed -e "s/ /_/g")"
               # Create a zip file for each directory
               echo "Creating zip ($dir --> example-${exampleName}.zip)"
-              zip -r "examples/example-${exampleName}.zip" "$dir"
+              zip -jr "examples/example-${exampleName}.zip" "$dir"
             fi
           done
 
