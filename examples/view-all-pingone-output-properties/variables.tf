@@ -7,3 +7,15 @@ variable "pingone_environment_license_id" {
     error_message = "The pingone_environment_license_id value must be a valid PingOne resource ID, which is a UUID format."
   }
 }
+
+variable "pingone_environment_name" {
+  description = "A string that represents the name of the PingOne customer environment to create and manage with Terraform."
+  type        = string
+  default     = "Example Module - utils - view-all-pingone-output-properties"
+}
+
+variable "append_date_to_environment_name" {
+  description = "A boolean that determines whether to append the current date to the pingone_environment_name value."
+  type        = bool
+  default     = true
+}
