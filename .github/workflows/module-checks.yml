@@ -1,0 +1,44 @@
+name: Terraform Module Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  terraform_checks:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        terraform:
+          - '1.2.*'
+          - '1.5.*'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: ${{ matrix.terraform }}
+          terraform_wrapper: false
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Format
+        run: terraform fmt -check
+
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@v3   
+
+      - name: Run TFLint
+        run: tflint --module
+
+      - name: Run tfsec
+        uses: aquasecurity/tfsec-action@v1.0.0
