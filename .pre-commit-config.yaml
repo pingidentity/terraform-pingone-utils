@@ -5,7 +5,6 @@ repos:
         name: TFUpdate Custom
         entry: ./scripts/tfupdate-examples.sh
         language: script
-        files: ^main.tf$
   - repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: v1.83.3
     hooks:
