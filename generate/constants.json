@@ -1,0 +1,162 @@
+[
+    {
+        "name": "pingone_role_name_client_application_developer",
+        "value": "Client Application Developer"
+    },
+    {
+        "name": "pingone_role_name_configuration_read_only",
+        "value": "Configuration Read Only"
+    },
+    {
+        "name": "pingone_role_name_davinci_admin",
+        "value": "DaVinci Admin"
+    },
+    {
+        "name": "pingone_role_name_davinci_admin_read_only",
+        "value": "DaVinci Admin Read Only"
+    },
+    {
+        "name": "pingone_role_name_environment_admin",
+        "value": "Environment Admin"
+    },
+    {
+        "name": "pingone_role_name_identity_data_admin",
+        "value": "Identity Data Admin"
+    },
+    {
+        "name": "pingone_role_name_identity_data_read_only",
+        "value": "Identity Data Read Only"
+    },
+    {
+        "name": "pingone_role_name_organization_admin",
+        "value": "Organization Admin"
+    },
+    {
+        "name": "pingone_role_name_pingfederate_administrator",
+        "value": "PingFederate Administrator"
+    },
+    {
+        "name": "pingone_role_name_pingfederate_auditor",
+        "value": "PingFederate Auditor"
+    },
+    {
+        "name": "pingone_role_name_pingfederate_crypto_administrator",
+        "value": "PingFederate Crypto Administrator"
+    },
+    {
+        "name": "pingone_role_name_pingfederate_expression_administrator",
+        "value": "PingFederate Expression Administrator"
+    },
+    {
+        "name": "pingone_role_name_pingfederate_user_administrator",
+        "value": "PingFederate User Administrator"
+    },
+    {
+        "name": "pingone_resource_name_openid_connect",
+        "value": "openid"
+    },
+    {
+        "name": "pingone_resource_name_pingone_api",
+        "value": "PingOne API"
+    },
+    {
+        "name": "pingone_resource_scope_name_openid_address",
+        "value": "address"
+    },
+    {
+        "name": "pingone_resource_scope_name_openid_email",
+        "value": "email"
+    },
+    {
+        "name": "pingone_resource_scope_name_openid_phone",
+        "value": "phone"
+    },
+    {
+        "name": "pingone_resource_scope_name_openid_profile",
+        "value": "profile"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_create_device",
+        "value": "p1:create:device"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_create_pairingkey",
+        "value": "p1:create:pairingKey"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_delete_device",
+        "value": "p1:delete:device"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_delete_pairingkey",
+        "value": "p1:delete:pairingKey"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_delete_sessions",
+        "value": "p1:delete:sessions"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_delete_userlinkedaccounts",
+        "value": "p1:delete:userLinkedAccounts"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_read_device",
+        "value": "p1:read:device"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_read_oauthconsent",
+        "value": "p1:read:oauthConsent"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_read_pairingkey",
+        "value": "p1:read:pairingKey"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_read_sessions",
+        "value": "p1:read:sessions"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_read_user",
+        "value": "p1:read:user"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_read_userconsent",
+        "value": "p1:read:userConsent"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_read_userlinkedaccounts",
+        "value": "p1:read:userLinkedAccounts"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_read_userpassword",
+        "value": "p1:read:userPassword"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_reset_userpassword",
+        "value": "p1:reset:userPassword"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_update_device",
+        "value": "p1:update:device"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_update_oauthconsent",
+        "value": "p1:update:oauthConsent"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_update_user",
+        "value": "p1:update:user"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_update_usermfaenabled",
+        "value": "p1:update:userMfaEnabled"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_validate_userpassword",
+        "value": "p1:validate:userPassword"
+    },
+    {
+        "name": "pingone_resource_scope_name_pingone_api_verify_user",
+        "value": "p1:verify:user"
+    }
+]
