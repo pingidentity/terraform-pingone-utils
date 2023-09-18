@@ -1,0 +1,35 @@
+name: Create Example Zip Files on Release
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create Zip Files
+        run: |
+          # Loop through the directories in the "examples" directory
+          for dir in examples/*; do
+            # Check if it's a directory
+            if [ -d "$dir" ]; then
+              exampleName="$(basename "$dir" | sed -e "s/ /_/g")"
+              # Create a zip file for each directory
+              echo "Creating zip ($dir --> example-${exampleName}.zip)"
+              zip -r "examples/example-${exampleName}.zip" "$dir"
+            fi
+          done
+
+      - name: Create Release Artifact
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: examples/*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
