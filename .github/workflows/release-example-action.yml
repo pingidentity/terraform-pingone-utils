@@ -28,7 +28,7 @@ jobs:
 
       - name: Create Release Artifact
         id: create_release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: examples/*.zip
         env:
