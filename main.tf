@@ -52,7 +52,6 @@ locals {
   ###########################################
   pingone_url_api_path_v1             = format("%s/v1", local.pingone_url_api_path)
   pingone_url_orchestrate_api_path_v1 = format("%s/v1", local.pingone_url_orchestrate_api_path)
-  pingone_url_scim_api_path_v1        = format("%s/v1", local.pingone_url_scim_api_path)
 
   ###########################################
   # System Application Endpoints
