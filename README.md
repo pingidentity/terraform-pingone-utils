@@ -14,7 +14,7 @@ This Terraform module is still in development and considered early access.  Brea
 module "pingone_utils" {
   source = "pingidentity/utils/pingone"
 
-  region         = pingone_environment.my_environment.region
+  region_code    = pingone_environment.my_environment.region
   environment_id = pingone_environment.my_environment.id
   custom_domain  = "auth.bxretail.org"
 }
@@ -26,7 +26,7 @@ module "pingone_utils" {
 module "pingone_utils" {
   source = "pingidentity/utils/pingone"
 
-  region         = pingone_environment.my_environment.region
+  region_code    = pingone_environment.my_environment.region
   environment_id = pingone_environment.my_environment.id
 }
 ```
@@ -39,7 +39,7 @@ The following are calculated values that are needed to configure PingOne service
 
 | Module Output | Description | Example Result Value |
 |---------------|-------------|----------------------|
-| `pingone_davinci_connector_region_code` | The region code to use when configuring a DaVinci connector for the PingOne service.  Will be either `NA`, `EU`, `CA` or `AP`. | `NA` |
+| `pingone_davinci_connector_region_code` | The region code to use when configuring a DaVinci connector for the PingOne service.  Will be either `NA`, `EU`, `CA`, `AU` or `AP`. | `NA` |
 
 ### Platform Endpoint URLs, Base URLs and Domains
 
@@ -76,7 +76,7 @@ The following are calculated URLs to interact with PingOne's administration and 
 
 | Module Output | Description | Example Result Value with `custom_domain` input defined | Example Result Value without `custom_domain` input defined |
 |---------------|-------------|---------------------------------------------------------|------------------------------------------------------------|
-| `pingone_domain_suffix` | The domain suffix for the PingOne tenant.  Will be either `com`, `eu`, `ca` or `asia`. | `com` | `com` |
+| `pingone_domain_suffix` | The domain suffix for the PingOne tenant.  Will be either `com`, `eu`, `ca` `asia` or `com.au`. | `com` | `com` |
 | `pingone_url_agreement_management_api_domain` | The domain for the PingOne tenant's Agreement Management API server. | `agreement-mgmt.pingone.com` | `agreement-mgmt.pingone.com` |
 | `pingone_url_agreement_management_api_path` | The base path for the PingOne tenant's Agreement Management API server. | `https://agreement-mgmt.pingone.com` | `https://agreement-mgmt.pingone.com` |
 | `pingone_url_api_domain` | The domain for the PingOne tenant's API server. | `api.pingone.com` | `api.pingone.com` |
@@ -105,6 +105,7 @@ The following are calculated PingOne resource IDs for each administration role i
 
 | Module Output | Description | Example Result Value |
 |---------------|-------------|----------------------|
+| `pingone_role_id_application_owner` | A string representing the PingOne resource ID of the role `Application Owner`. | `e5044093-3a97-4886-950c-2c501f8985d4` |
 | `pingone_role_id_client_application_developer` | A string representing the PingOne resource ID of the role `Client Application Developer`. | `e5044093-3a97-4886-950c-2c501f8985d4` |
 | `pingone_role_id_configuration_read_only` | A string representing the PingOne resource ID of the role `Configuration Read Only`. | `c0ed8595-2f18-4034-b0cf-aa2943b78c2f` |
 | `pingone_role_id_davinci_admin_read_only` | A string representing the PingOne resource ID of the role `DaVinci Admin Read Only`. | `560bd896-6053-4d71-9e73-3d0b1e8f882e` |
@@ -125,6 +126,7 @@ The following are constant values for the names of each administration role in t
 
 | Module Output | Description | Example Result Value |
 |---------------|-------------|----------------------|
+| `pingone_role_name_application_owner` | The string constant representing the name of the PingOne role `Application Owner`. | `Application Owner` |
 | `pingone_role_name_client_application_developer` | The string constant representing the name of the PingOne role `Client Application Developer`. | `Client Application Developer` |
 | `pingone_role_name_configuration_read_only` | The string constant representing the name of the PingOne role `Configuration Read Only`. | `Configuration Read Only` |
 | `pingone_role_name_davinci_admin_read_only` | The string constant representing the name of the PingOne role `DaVinci Admin Read Only`. | `DaVinci Admin Read Only` |

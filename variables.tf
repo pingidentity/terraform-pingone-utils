@@ -1,11 +1,11 @@
-variable "region" {
-  description = "A string that represents the PingOne region where the environment will be created. Valid values are `NorthAmerica`, `Europe`, `Canada`, `AsiaPacific`, their API codes `NA`, `EU`, `CA`, `AP` or their top level domain `com`, `eu`, `ca`, `asia`.  This value can be obtained from `region` parameter of the `pingone_environment` resource or data source."
+variable "region_code" {
+  description = "A string that represents the PingOne region where the environment will be created. Valid values are API codes `NA`, `EU`, `CA`, `AP`, `AU` or their top level domain `com`, `eu`, `ca`, `asia`, `com.au`.  This value can be obtained from `region` parameter of the `pingone_environment` resource or data source."
   type        = string
   nullable    = false
 
   validation {
-    condition     = contains(["NORTHAMERICA", "EUROPE", "CANADA", "ASIAPACIFIC", "NA", "EU", "CA", "AP", "COM", "ASIA"], upper(var.region))
-    error_message = "The region value must be one of `NorthAmerica`, `Europe`, `Canada`, `AsiaPacific`, their API codes `NA`, `EU`, `CA`, `AP` or their top level domain `com`, `eu`, `ca`, `asia`."
+    condition     = contains(["NA", "EU", "CA", "AP", "AU", "COM", "ASIA", "COM.AU"], upper(var.region_code))
+    error_message = "The region value must be one of API codes `NA`, `EU`, `CA`, `AP`, `AU` or their top level domain `com`, `eu`, `ca`, `asia`, `com.au`."
   }
 }
 

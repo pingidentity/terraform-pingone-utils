@@ -3,7 +3,7 @@
 ###########################################
 
 output "pingone_domain_suffix" {
-  description = "The domain suffix for the PingOne tenant.  Will be either `com`, `eu`, `ca` or `asia`."
+  description = "The domain suffix for the PingOne tenant.  Will be either `com`, `eu`, `ca`, `asia`, or `com.au`."
   value       = local.pingone_domain_suffix
 }
 
@@ -204,6 +204,11 @@ output "pingone_davinci_connector_region_code" {
 # PingOne Role Name Constants
 ###########################################
 
+output "pingone_role_name_application_owner" {
+  description = "The string constant representing the name of the PingOne role `Application Owner`."
+  value       = local.pingone_role_name_application_owner
+}
+
 output "pingone_role_name_client_application_developer" {
   description = "The string constant representing the name of the PingOne role `Client Application Developer`."
   value       = local.pingone_role_name_client_application_developer
@@ -272,6 +277,11 @@ output "pingone_role_name_pingfederate_user_administrator" {
 ###########################################
 # PingOne Role IDs
 ###########################################
+
+output "pingone_role_id_application_owner" {
+  description = "A string representing the PingOne resource ID of the role `Application Owner`."
+  value       = data.pingone_role.application_owner.id
+}
 
 output "pingone_role_id_client_application_developer" {
   description = "A string representing the PingOne resource ID of the role `Client Application Developer`."
