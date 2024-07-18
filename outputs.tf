@@ -114,11 +114,6 @@ output "pingone_url_orchestrate_api_path_v1" {
   value       = local.pingone_url_orchestrate_api_path_v1
 }
 
-output "pingone_url_scim_api_path_v1" {
-  description = "The base path for the PingOne tenant's SCIM API server (v1).  Example result: `https://scim-api.pingone.com/v1`."
-  value       = local.pingone_url_scim_api_path_v1
-}
-
 ###########################################
 # System Application Endpoints
 ###########################################

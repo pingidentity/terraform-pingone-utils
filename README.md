@@ -94,7 +94,6 @@ The following are calculated URLs to interact with PingOne's administration and 
 | `pingone_url_orchestrate_api_path_v1` | The base path for the PingOne tenant's Orchestrate API server (v1). | `https://orchestrate-api.pingone.com/v1` | `https://orchestrate-api.pingone.com/v1` |
 | `pingone_url_orchestrate_api_path` | The base path for the PingOne tenant's Orchestrate API server. | `https://orchestrate-api.pingone.com` | `https://orchestrate-api.pingone.com` |
 | `pingone_url_scim_api_domain` | The domain for the PingOne tenant's SCIM API server. | `scim-api.pingone.com` | `scim-api.pingone.com` |
-| `pingone_url_scim_api_path_v1` | The base path for the PingOne tenant's SCIM API server (v1). | `https://scim-api.pingone.com/v1` | `https://scim-api.pingone.com/v1` |
 | `pingone_url_scim_api_path` | The base path for the PingOne tenant's SCIM API server. | `https://scim-api.pingone.com` | `https://scim-api.pingone.com` |
 
 ### Admin Roles
