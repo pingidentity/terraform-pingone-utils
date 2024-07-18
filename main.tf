@@ -1,25 +1,27 @@
 locals {
 
-  region         = upper(trimspace(var.region == null ? "" : var.region))
+  region         = upper(trimspace(var.region_code == null ? "" : var.region_code))
   custom_domain  = lower(trimspace(var.custom_domain == null ? "" : var.custom_domain))
   environment_id = lower(trimspace(var.environment_id == null ? "" : var.environment_id))
 
   ###########################################
   # Region Expressions
   ###########################################
-  is_north_america = (local.region == "NORTHAMERICA" || local.region == "NA" || local.region == "COM")
-  is_europe        = (local.region == "EUROPE" || local.region == "EU")
-  is_canada        = (local.region == "CANADA" || local.region == "CA")
-  is_asia_pacific  = (local.region == "ASIAPACIFIC" || local.region == "AP" || local.region == "ASIA")
+  is_north_america   = (local.region == "NA" || local.region == "COM")
+  is_europe          = (local.region == "EU")
+  is_canada          = (local.region == "CA")
+  is_asia_pacific    = (local.region == "AP" || local.region == "ASIA")
+  is_asia_pacific_au = (local.region == "AU" || local.region == "COM.AU")
 
   ###########################################
   # Domain Suffixes
   ###########################################
-  pingone_domain_suffix_north_america = local.is_north_america ? "com" : ""
-  pingone_domain_suffix_europe        = local.is_europe ? "eu" : ""
-  pingone_domain_suffix_canada        = local.is_canada ? "ca" : ""
-  pingone_domain_suffix_asia_pacific  = local.is_asia_pacific ? "asia" : ""
-  pingone_domain_suffix               = coalesce(local.pingone_domain_suffix_north_america, local.pingone_domain_suffix_europe, local.pingone_domain_suffix_canada, local.pingone_domain_suffix_asia_pacific)
+  pingone_domain_suffix_north_america   = local.is_north_america ? "com" : ""
+  pingone_domain_suffix_europe          = local.is_europe ? "eu" : ""
+  pingone_domain_suffix_canada          = local.is_canada ? "ca" : ""
+  pingone_domain_suffix_asia_pacific    = local.is_asia_pacific ? "asia" : ""
+  pingone_domain_suffix_asia_pacific_au = local.is_asia_pacific_au ? "com.au" : ""
+  pingone_domain_suffix                 = coalesce(local.pingone_domain_suffix_north_america, local.pingone_domain_suffix_europe, local.pingone_domain_suffix_canada, local.pingone_domain_suffix_asia_pacific, local.pingone_domain_suffix_asia_pacific_au)
 
   ###########################################
   # Domains
@@ -76,15 +78,17 @@ locals {
   ###########################################
   # DaVinci Connector Region Code
   ###########################################
-  pingone_davinci_connector_region_code_north_america = local.is_north_america ? "NA" : ""
-  pingone_davinci_connector_region_code_europe        = local.is_europe ? "EU" : ""
-  pingone_davinci_connector_region_code_canada        = local.is_canada ? "CA" : ""
-  pingone_davinci_connector_region_code_asia_pacific  = local.is_asia_pacific ? "AP" : ""
-  pingone_davinci_connector_region_code               = coalesce(local.pingone_davinci_connector_region_code_north_america, local.pingone_davinci_connector_region_code_europe, local.pingone_davinci_connector_region_code_canada, local.pingone_davinci_connector_region_code_asia_pacific)
+  pingone_davinci_connector_region_code_north_america   = local.is_north_america ? "NA" : ""
+  pingone_davinci_connector_region_code_europe          = local.is_europe ? "EU" : ""
+  pingone_davinci_connector_region_code_canada          = local.is_canada ? "CA" : ""
+  pingone_davinci_connector_region_code_asia_pacific    = local.is_asia_pacific ? "AP" : ""
+  pingone_davinci_connector_region_code_asia_pacific_au = local.is_asia_pacific_au ? "AU" : ""
+  pingone_davinci_connector_region_code                 = coalesce(local.pingone_davinci_connector_region_code_north_america, local.pingone_davinci_connector_region_code_europe, local.pingone_davinci_connector_region_code_canada, local.pingone_davinci_connector_region_code_asia_pacific, local.pingone_davinci_connector_region_code_asia_pacific_au)
 
   ###########################################
   # PingOne Role Name Constants
   ###########################################
+  pingone_role_name_application_owner                     = "Application Owner"
   pingone_role_name_client_application_developer          = "Client Application Developer"
   pingone_role_name_configuration_read_only               = "Configuration Read Only"
   pingone_role_name_davinci_admin                         = "DaVinci Admin"
@@ -179,6 +183,10 @@ locals {
 # PingOne Roles
 # TODO: Consolidate to a `pingone_roles` data source and use expressions to select the appropriate role
 ###########################################
+data "pingone_role" "application_owner" {
+  name = local.pingone_role_name_application_owner
+}
+
 data "pingone_role" "client_application_developer" {
   name = local.pingone_role_name_client_application_developer
 }
