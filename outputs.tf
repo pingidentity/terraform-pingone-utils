@@ -3,7 +3,7 @@
 ###########################################
 
 output "pingone_domain_suffix" {
-  description = "The domain suffix for the PingOne tenant.  Will be either `com`, `eu`, `ca`, `asia`, or `com.au`."
+  description = "The domain suffix for the PingOne tenant.  Will be either `com`, `eu`, `ca`, `asia`, `com.au` or `sg`."
   value       = local.pingone_domain_suffix
 }
 
