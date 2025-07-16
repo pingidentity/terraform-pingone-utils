@@ -12,6 +12,7 @@ locals {
   is_canada          = (local.region == "CA")
   is_asia_pacific    = (local.region == "AP" || local.region == "ASIA")
   is_asia_pacific_au = (local.region == "AU" || local.region == "COM.AU")
+  is_singapore       = (local.region == "SG")
 
   ###########################################
   # Domain Suffixes
@@ -21,7 +22,8 @@ locals {
   pingone_domain_suffix_canada          = local.is_canada ? "ca" : ""
   pingone_domain_suffix_asia_pacific    = local.is_asia_pacific ? "asia" : ""
   pingone_domain_suffix_asia_pacific_au = local.is_asia_pacific_au ? "com.au" : ""
-  pingone_domain_suffix                 = coalesce(local.pingone_domain_suffix_north_america, local.pingone_domain_suffix_europe, local.pingone_domain_suffix_canada, local.pingone_domain_suffix_asia_pacific, local.pingone_domain_suffix_asia_pacific_au)
+  pingone_domain_suffix_singapore       = local.is_singapore ? "sg" : ""
+  pingone_domain_suffix                 = coalesce(local.pingone_domain_suffix_north_america, local.pingone_domain_suffix_europe, local.pingone_domain_suffix_canada, local.pingone_domain_suffix_asia_pacific, local.pingone_domain_suffix_asia_pacific_au, local.pingone_domain_suffix_singapore)
 
   ###########################################
   # Domains
@@ -82,7 +84,8 @@ locals {
   pingone_davinci_connector_region_code_canada          = local.is_canada ? "CA" : ""
   pingone_davinci_connector_region_code_asia_pacific    = local.is_asia_pacific ? "AP" : ""
   pingone_davinci_connector_region_code_asia_pacific_au = local.is_asia_pacific_au ? "AU" : ""
-  pingone_davinci_connector_region_code                 = coalesce(local.pingone_davinci_connector_region_code_north_america, local.pingone_davinci_connector_region_code_europe, local.pingone_davinci_connector_region_code_canada, local.pingone_davinci_connector_region_code_asia_pacific, local.pingone_davinci_connector_region_code_asia_pacific_au)
+  pingone_davinci_connector_region_code_singapore       = local.is_singapore ? "SG" : ""
+  pingone_davinci_connector_region_code                 = coalesce(local.pingone_davinci_connector_region_code_north_america, local.pingone_davinci_connector_region_code_europe, local.pingone_davinci_connector_region_code_canada, local.pingone_davinci_connector_region_code_asia_pacific, local.pingone_davinci_connector_region_code_asia_pacific_au, local.pingone_davinci_connector_region_code_singapore)
 
   ###########################################
   # PingOne Role Name Constants

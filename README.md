@@ -39,7 +39,7 @@ The following are calculated values that are needed to configure PingOne service
 
 | Module Output | Description | Example Result Value |
 |---------------|-------------|----------------------|
-| `pingone_davinci_connector_region_code` | The region code to use when configuring a DaVinci connector for the PingOne service.  Will be either `NA`, `EU`, `CA`, `AU` or `AP`. | `NA` |
+| `pingone_davinci_connector_region_code` | The region code to use when configuring a DaVinci connector for the PingOne service.  Will be either `NA`, `EU`, `CA`, `AU`, `AP` or `SG`. | `NA` |
 
 ### Platform Endpoint URLs, Base URLs and Domains
 

@@ -16,7 +16,7 @@ jobs:
       matrix:
         terraform:
           - '1.4.*'
-          - '1.9.*'
+          - '1.12.*'
 
     steps:
       - name: Checkout code
