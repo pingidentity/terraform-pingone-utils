@@ -85,7 +85,7 @@ locals {
   pingone_davinci_connector_region_code_asia_pacific    = local.is_asia_pacific ? "AP" : ""
   pingone_davinci_connector_region_code_asia_pacific_au = local.is_asia_pacific_au ? "AU" : ""
   pingone_davinci_connector_region_code_singapore       = local.is_singapore ? "SG" : ""
-  pingone_davinci_connector_region_code                 = coalesce(local.pingone_davinci_connector_region_code_north_america, local.pingone_davinci_connector_region_code_europe, local.pingone_davinci_connector_region_code_canada, local.pingone_davinci_connector_region_code_asia_pacific, local.pingone_davinci_connector_region_code_singapore)
+  pingone_davinci_connector_region_code                 = coalesce(local.pingone_davinci_connector_region_code_north_america, local.pingone_davinci_connector_region_code_europe, local.pingone_davinci_connector_region_code_canada, local.pingone_davinci_connector_region_code_asia_pacific, local.pingone_davinci_connector_region_code_asia_pacific_au, local.pingone_davinci_connector_region_code_singapore)
 
   ###########################################
   # PingOne Role Name Constants
