@@ -16,7 +16,7 @@ jobs:
       matrix:
         terraform:
           - '1.4.*'
-          - '1.9.*'
+          - '1.12.*'
 
     steps:
       - name: Checkout code
@@ -41,7 +41,7 @@ jobs:
         uses: terraform-linters/setup-tflint@v4   
 
       - name: Run TFLint
-        run: tflint --module
+        run: tflint --call-module-type=all
 
   Terraform-Security-Checks:
     runs-on: ubuntu-latest
