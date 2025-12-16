@@ -1,4 +1,6 @@
 name: Create Example Zip Files on Release
+permissions:
+  contents: write
 
 on:
   release:
